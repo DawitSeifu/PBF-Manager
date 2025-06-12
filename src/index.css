@@ -1,0 +1,50 @@
+@page {
+  margin-top: 10mm;
+  margin-bottom: 5mm;
+  margin-right: 1mm;
+  margin-left: 1mm;
+}
+@media print {
+	max-height:100%;
+	max-width:100%;
+  .body {
+    font-size: "0.7500rem";
+  }
+
+  .no-print,
+  .no-print * {
+    display: none !important;
+  }
+  #invoiceTable tr:nth-child(odd) {
+    background-color: #eeeeee !important;
+    -webkit-print-color-adjust: exact;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    page-break-after: avoid !important;
+  }
+
+  p,
+  li,
+  blockquote,
+  figure,
+  img {
+    page-break-inside: avoid !important;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(0,0,0,.03);
+  border-collapse: collapse;
+}

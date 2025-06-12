@@ -1,0 +1,20 @@
+{
+  "version": "0.0.1b",
+  "name": "PBF Manager",
+  "appType": "APP",
+  "description": "Hesabu Reporting, Invoicing tool",
+  "icons": {
+    "48": "blsq_rbf_invoicing.png"
+  },
+  "developer": {
+    "name": "Stéphan Mestach",
+    "email": "mestachs@bluesquarehub.com"
+  },
+  "activities": {
+    "dhis": {
+      "href": "*"
+    }
+  },
+  "launch_path": "index.html",
+  "default_locale": "en"
+}

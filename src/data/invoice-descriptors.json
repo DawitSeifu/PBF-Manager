@@ -1,0 +1,137 @@
+[
+  {
+    "code": "health-center-invoice",
+    "name": "Health Center Invoice",
+    "facilityLabel": "Health center",
+    "orientation": "portrait",
+    "frequency": "quarterlyNov",
+    "periodFormat": "quarter",
+    "paymentRule": "health_center_payment",
+    "dataSets": [
+      "XK8MHYfhZQ1"
+    ],
+    "dataElementGroups": [
+      "sAKB32kTSsQ",
+      "vwJ0DEWAEer"
+    ],
+    "organisationUnitGroup": "Jr6rqRqLpTZ",
+    "testData": [
+      {
+        "period": "2018NovQ1",
+        "orgUnit": "TwSa8zUu09Q"
+      }
+    ]
+  },
+  {
+    "code": "hospital-invoice",
+    "name": "Hospital Invoice",
+    "facilityLabel": "Hospital",
+    "orientation": "portrait",
+    "frequency": "quarterlyNov",
+    "periodFormat": "quarter",
+    "paymentRule": "hospital_payment",
+    "dataSets": [
+      "XK8MHYfhZQ1"
+    ],
+    "dataElementGroups": [
+      "sAKB32kTSsQ",
+      "vwJ0DEWAEer"
+    ],
+    "organisationUnitGroup": "Jr6rqRqLpTZ",
+    "testData": [
+      {
+        "period": "2018NovQ1",
+        "orgUnit": "TwSa8zUu09Q"
+      }
+    ]
+  },
+  {
+    "code": "zone-invoice",
+    "name": "Zonal Health Department Performance",
+    "facilityLabel": "Zonal Health Department",
+    "facilityKey": "facility",
+    "orientation": "portrait",
+    "frequency": "quarterlyNov",
+    "dataSets": [
+      "lMj5KJM1sZy",
+      "MCMyeUnuz8Q"
+    ],
+    "dataElementGroups": [],
+    "organisationUnitGroup": "Tly4W2DDFLD",
+    "payment_rule": "zhd_payment",
+    "quantity_package": "zhd"
+  },
+  {
+    "code": "woreda-invoice",
+    "name": "Woreda Health Office Performance",
+    "facilityLabel": "Woreda Health Office",
+    "facilityKey": "facility",
+    "orientation": "portrait",
+    "frequency": "quarterlyNov",
+    "dataSets": [
+      "kDUAMM40oqF",
+      "b0vu1DZeQPn"
+    ],
+    "dataElementGroups": [],
+    "organisationUnitGroup": "snkgwcT2i21",
+    "payment_rule": "who_payment",
+    "quantity_package": "who"
+  },
+  {
+    "code": "cbo-invoice",
+    "name": "CBO Invoice",
+    "facilityLabel": "Facility",
+    "facilityKey": "facility",
+    "orientation": "portrait",
+    "frequency": "quarterlyNov",
+    "organisationUnitGroup": "Jr6rqRqLpTZ",
+    "dataSets": [
+      "kDUAMM40oqF",
+      "b0vu1DZeQPn"
+    ],
+    "dataElementGroups": [],
+    "payment_rule": "cbo_payment",
+    "quantity_package": "cbo"
+  },
+  {
+    "code": "purchaser-invoice",
+    "name": "Purchaser Performance",
+    "facilityLabel": "EHIS",
+    "facilityKey": "facility",
+    "orientation": "portrait",
+    "frequency": "quarterlyNov",
+    "organisationUnitGroup": "Tly4W2DDFLD",
+    "dataSets": [
+      "kDUAMM40oqF",
+      "b0vu1DZeQPn"
+    ],
+    "dataElementGroups": [],
+    "payment_rule": "purchaser_payment",
+    "quantity_package": "purchaser"
+  },
+  {
+    "code": "approvals",
+    "name": "Data approval",
+    "facilityLabel": "Zone",
+    "orientation": "landscape",
+    "frequency": "quarterlyNov",
+    "periodFormat": "quarter",
+    "dataSets": [
+      "gwm3aNyWcyq"
+    ],
+    "dataElementGroups": [],
+    "organisationUnitGroup": "Jr6rqRqLpTZ",
+    "testData": [
+      {
+        "orgUnit": "GnLX8MNgxZw",
+        "period": "2019Q1",
+        "name": "Sud Kivu"
+      },
+      {
+        "orgUnit": "F9w3VW1cQmb",
+        "period": "2019Q2",
+        "name": "Haut Katanga"
+      }
+    ]
+  }
+]

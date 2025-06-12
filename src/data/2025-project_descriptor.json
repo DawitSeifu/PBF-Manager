@@ -1,0 +1,1873 @@
+{
+  "status": "draft",
+  "start_date": null,
+  "end_date": null,
+  "payment_rules": {
+    "health_center_payment": {
+      "name": "Health Center Payment",
+      "frequency": "quarterly_nov",
+      "formulas": {
+        "total_payment": {
+          "short_name": "Total PBF Payment",
+          "description": "Total PBF Payment",
+          "expression": "round(payment_without_fraud - fraud_retention_amount, 2)",
+          "frequency": "quarterly_nov",
+          "exportable_formula_code": null,
+          "de_id": "LctXCm7lmxN"
+        },
+        "quality_payment": {
+          "short_name": "Quality Payment",
+          "description": "Quality Payment",
+          "expression": "quality_score * hc_quality_price",
+          "frequency": "quarterly_nov",
+          "exportable_formula_code": null,
+          "de_id": "CpYk6hUI32G"
+        },
+        "equity_bonus": {
+          "short_name": "equity_bonus",
+          "description": "Equity Bonus",
+          "expression": "total_quantity_amount * (equity_score/100)",
+          "frequency": "quarterly_nov",
+          "exportable_formula_code": null,
+          "de_id": "d1i6xycA993"
+        },
+        "quantity_plus_equity": {
+          "short_name": "Quantity Plus Equity",
+          "description": "Quantity Plus Equity",
+          "expression": "total_quantity_amount + equity_bonus",
+          "frequency": "quarterly_nov",
+          "exportable_formula_code": null,
+          "de_id": null
+        },
+        "payment_without_fraud": {
+          "short_name": "Payment Without Fraud",
+          "description": "Payment Without Fraud",
+          "expression": "quantity_plus_equity + quality_payment",
+          "frequency": "quarterly_nov",
+          "exportable_formula_code": null,
+          "de_id": "xjp6n8xRs0s"
+        },
+        "fraud_retention_amount": {
+          "short_name": "Fraud Retention Amount",
+          "description": "Fraud Retention Amount",
+          "expression": "payment_without_fraud * safe_div(fraud_scale, 100)",
+          "frequency": "quarterly_nov",
+          "exportable_formula_code": null,
+          "de_id": "xO1lNFXNnFH"
+        },
+        "quality_score": {
+          "short_name": "Quality Score",
+          "description": "Quality Score",
+          "expression": "round(0.8 * technical_score/100 + 0.2 * com_score/100, 2)",
+          "frequency": "quarterly_nov",
+          "exportable_formula_code": null,
+          "de_id": "NY6UAqLPPLz"
+        },
+        "total_quantity_payment": {
+          "short_name": "Total Quantity Amount",
+          "description": "Total Quantity Payment",
+          "expression": "total_quantity_amount",
+          "frequency": "quarterly_nov",
+          "exportable_formula_code": null,
+          "de_id": "p04unnWHgnD"
+        },
+        "tech_score": {
+          "short_name": "Technical Score",
+          "description": "Technical Score",
+          "expression": "technical_score",
+          "frequency": "quarterly_nov",
+          "exportable_formula_code": null,
+          "de_id": "h9zRrTQHb32"
+        }
+      },
+      "packages": {
+        "health_center_quality": {
+          "name": "Health Center Quality",
+          "description": "Health Center Quality",
+          "code": "health_center_quality",
+          "frequency": "quarterly_nov",
+          "kind": "single",
+          "activities": [
+            {
+              "name": "1 Diagnosis and management of Diabetes",
+              "code": "hcq01",
+              "verified": "vO8G6E7o084"
+            },
+            {
+              "name": "2 Diagnosis and management of HTN",
+              "code": "hcq02",
+              "verified": "Ar6tkcP2mLH"
+            },
+            {
+              "name": "3 Ante Natal Care (ANC)",
+              "code": "hcq03",
+              "verified": "iN8Ec4yf7JT"
+            },
+            {
+              "name": "4 Labour and delivery",
+              "code": "hcq04",
+              "verified": "kriaJ8ayEZ1"
+            },
+            {
+              "name": "5 Post Natal Care (PNC)",
+              "code": "hcq05",
+              "verified": "wy9DHRPBJcF"
+            },
+            {
+              "name": "6 Pharmacy and supplies",
+              "code": "hcq06",
+              "verified": "s9oIPvtDoDm"
+            },
+            {
+              "name": "7 Heath centre governance",
+              "code": "hcq07",
+              "verified": "ft6mWTCAtrK"
+            },
+            {
+              "name": "8 General Appearance and Safety",
+              "code": "hcq08",
+              "verified": "tiRYcDdQP3I"
+            },
+            {
+              "name": "9 Administration, financial management, HRM and planning",
+              "code": "hcq09",
+              "verified": "IpIAVa0oGtK"
+            },
+            {
+              "name": "12 General Out-Patient Department (OPD)",
+              "code": "hcq12",
+              "verified": "JdSCancEXQ3"
+            },
+            {
+              "name": "13 Under 5 OPD",
+              "code": "hcq13",
+              "verified": "TYuF8xK18QE"
+            },
+            {
+              "name": "14 Emergency services",
+              "code": "hcq14",
+              "verified": "wNPUQnxmiVH"
+            },
+            {
+              "name": "15 Expanded Program on Immunization (EPI) and Growth Monitoring (GM)",
+              "code": "hcq15",
+              "verified": "UVgVpvpAnq2"
+            },
+            {
+              "name": "16 Nutrition services",
+              "code": "hcq16",
+              "verified": "qAK2pugKyus"
+            },
+            {
+              "name": "17 Inpatient services",
+              "code": "hcq17",
+              "verified": "PF6iRYQlWFW"
+            },
+            {
+              "name": "18 Referral services",
+              "code": "hcq18",
+              "verified": "fX9Nt3VxNJ5"
+            },
+            {
+              "name": "19 Outreach and Health Post Supervision",
+              "code": "hcq19",
+              "verified": "e2AvcVpHYDi"
+            },
+            {
+              "name": "20 Laboratory services",
+              "code": "hcq20",
+              "verified": "ggQNe35jLZp"
+            }
+          ],
+          "data_set_ids": [],
+          "data_element_group_ids": [],
+          "main_org_unit_group_ids": [
+            "c0qflQrvmUG"
+          ],
+          "target_org_unit_group_ids": [],
+          "groupset_ext_id": null,
+          "matching_groupset_ids": [],
+          "deg_ext_id": "nnASd4qThG4",
+          "activity_formulas": {
+            "percent_score": {
+              "short_name": "Percent Score",
+              "description": "Percent Score",
+              "expression": "verified",
+              "frequency": "quarterly",
+              "exportable_formula_code": null
+            }
+          },
+          "activity_decision_tables": [],
+          "formulas": {
+            "technical_score": {
+              "short_name": "Technical Score",
+              "description": "Technical Score",
+              "expression": "SUM(%{percent_score_values})",
+              "frequency": "quarterly_nov",
+              "exportable_formula_code": null,
+              "de_id": "h9zRrTQHb32"
+            }
+          }
+        },
+        "health_center_quantity": {
+          "name": "Health Center Quantity",
+          "description": "Health Center Quantity",
+          "code": "health_center_quantity",
+          "frequency": "monthly",
+          "kind": "single",
+          "activities": [
+            {
+              "name": "1a - Total new and repeat acceptors, disaggregated by method (New and repeated visits for FP modern methods (short term))",
+              "code": "hc01",
+              "declared": "CqrlIoPzOMD",
+              "verified": "xZwf6u5Nnxf",
+              "unit_price": "eWtbvGYk31l"
+            },
+            {
+              "name": "1b - Total new and repeat acceptors, disaggregated by method (New and repeated visits for FP modern methods (long term))",
+              "code": "hc02",
+              "declared": "pEjDrofzGgc",
+              "verified": "DoiwxbUHJlJ",
+              "unit_price": "eWtbvGYk31l"
+            },
+            {
+              "name": "2 - Antenatal Care (ANC) coverage – First contact",
+              "code": "hc03",
+              "declared": "hJGEI95aFvT.udH6Wqn8hdj",
+              "verified": "x10kCOAWQGa",
+              "unit_price": "Lk01gYPgmO9"
+            },
+            {
+              "name": "3 - Antenatal Care (ANC) coverage – Eight or more contact",
+              "code": "hc04",
+              "declared": "NTidDdqjEde",
+              "verified": "ZS7Jo0LrkBs",
+              "unit_price": "ZWVlc10Fg3E"
+            },
+            {
+              "name": "4 - Births attended by skilled health personnel",
+              "code": "hc05",
+              "declared": "lzhOxCHJMOV",
+              "verified": "h0luW8hoT26",
+              "unit_price": "tobX7qzhxn8"
+            },
+            {
+              "name": "5 - Early postnatal care coverage",
+              "code": "hc06",
+              "declared": "lDa3SlEIWf1",
+              "verified": "frfXFtmOm36",
+              "unit_price": "FKtth14wL7b"
+            },
+            {
+              "name": "6 - MCV2 Dose Coverage",
+              "code": "hc07",
+              "declared": "QNndaeXVwkT",
+              "verified": "pIu546lODQT",
+              "unit_price": "bYXWwIFmGGQ"
+            },
+            {
+              "name": "7 - Growth monitoring for children under two years",
+              "code": "hc08",
+              "declared": "RyqiYTTblPQ",
+              "verified": "wIZZdbNh7BI",
+              "unit_price": "y9gKZN5ifLm"
+            },
+            {
+              "name": "8 - Severe Acute Malnutrition (SAM) children under five years (Admission and treatment outcome for management of severe acute malnutrition in children under 6-59 Months for OTP)",
+              "code": "hc09",
+              "declared": "xQ36xicgmPg.RgTj81Mf5nA",
+              "verified": "fxPqrFSKMHe",
+              "unit_price": "ET5L02fw12w"
+            },
+            {
+              "name": "9 - Number of adults and children with HIV infection newly started on ART",
+              "code": "hc10",
+              "declared": "PYXHwqL1mo0",
+              "verified": "ihOC7u1I8sS",
+              "unit_price": "mFYQJzggrB8"
+            },
+            {
+              "name": "10 - Number of people living with HIV who know their status",
+              "code": "hc11",
+              "declared": "PYXHwqL1mo0",
+              "verified": "yAYihEQInvq",
+              "unit_price": "p4HpC98KKxE"
+            },
+            {
+              "name": "11 - Number of all forms of TB (New and Relapse) cases that were notified and treated during the reporting period",
+              "code": "hc12",
+              "declared": "Na3L65hr8Z4",
+              "verified": "FC7jO8K3nXZ",
+              "unit_price": "iuCor2bbAq2"
+            },
+            {
+              "name": "12 - Confirmed Hypertension cases registered for treatment (enrolled to care)",
+              "code": "hc13",
+              "declared": "lS3wbJFYokN",
+              "verified": "i89jtzLsTcp",
+              "unit_price": "pTj2T7zleWs"
+            },
+            {
+              "name": "14 - Women aged 30–49 years who have been screened for cervical cancer",
+              "code": "hc15",
+              "declared": "jm0Ij4Cc0Lo",
+              "verified": "J1OoDntiOql",
+              "unit_price": "aGLUfZszR9F"
+            },
+            {
+              "name": "15 - Women 30-49 years with cervical lesion treated",
+              "code": "hc16",
+              "declared": "g1qHnEWvVg4",
+              "verified": "uHvNXARvwiD",
+              "unit_price": "pJS5tZLrSpF"
+            },
+            {
+              "name": "16m - Outpatient Visits for children < 5 years – male",
+              "code": "hc17",
+              "declared": "pbsBlUxd3hb.kXOvDUag3oG",
+              "verified": "bYcohmVSgIN",
+              "unit_price": "kytxLSEuUbQ"
+            },
+            {
+              "name": "16f - Outpatient Visits for children < 5 years - female",
+              "code": "hc18",
+              "declared": "pbsBlUxd3hb.d5XrnBiZSn2",
+              "verified": "tHIOPoRy7x7",
+              "unit_price": "wGCCtNqqLr9"
+            },
+            {
+              "name": "17m - Outpatient Visits - male Number of",
+              "code": "hc19",
+              "declared": "QDvlRmkKT9E",
+              "verified": "CdBXCS39HTj",
+              "unit_price": "uXZYDa05cik"
+            },
+            {
+              "name": "17f - Outpatient Visits - female",
+              "code": "hc20",
+              "declared": "Q3heELVE2am",
+              "verified": "cfpzQaCyKhM",
+              "unit_price": "xicC5j6GsOL"
+            },
+            {
+              "name": "18 - Clients with 100% prescribed drugs filled",
+              "code": "hc21",
+              "declared": "KgrydWwLnJK",
+              "verified": "MZOfzAw6Ewb",
+              "unit_price": "tf5IR4HKf1N"
+            }
+          ],
+          "data_set_ids": [],
+          "data_element_group_ids": [],
+          "main_org_unit_group_ids": [
+            "c0qflQrvmUG"
+          ],
+          "target_org_unit_group_ids": [],
+          "groupset_ext_id": null,
+          "matching_groupset_ids": [],
+          "deg_ext_id": "uB6exHM3zqu",
+          "activity_formulas": {
+            "error_margin": {
+              "short_name": "Error Margin",
+              "description": "Error Margin",
+              "expression": "safe_div(ABS(declared - verified)*100, verified)",
+              "frequency": "monthly",
+              "exportable_formula_code": null
+            },
+            "price": {
+              "short_name": "Price",
+              "description": "Price",
+              "expression": "unit_price_level_2_quarterly_nov",
+              "frequency": "monthly",
+              "exportable_formula_code": null
+            },
+            "amount_lost": {
+              "short_name": "Amount Lost",
+              "description": "Amount Lost",
+              "expression": "if(waiver = 1, 0, if(error_margin > 10, verified * price, 0))",
+              "frequency": "monthly",
+              "exportable_formula_code": null
+            },
+            "amount": {
+              "short_name": "Amount",
+              "description": "Amount",
+              "expression": "if( waiver = 1, verified * price , if(error_margin <= 10, verified * price, 0))",
+              "frequency": "monthly",
+              "exportable_formula_code": null
+            }
+          },
+          "activity_decision_tables": [],
+          "formulas": {
+            "total_quantity_amount": {
+              "short_name": "Total Quantity Amount",
+              "description": "Total Quantity Amount",
+              "expression": "SUM(%{amount_values})",
+              "frequency": "monthly",
+              "exportable_formula_code": null,
+              "de_id": "v2dOc9KyiFl"
+            },
+            "total_amount_lost": {
+              "short_name": "Total Amount Lost",
+              "description": "Total Amount Lost",
+              "expression": "SUM(%{amount_lost_values})",
+              "frequency": "monthly",
+              "exportable_formula_code": null,
+              "de_id": null
+            }
+          }
+        },
+        "community_quality_score": {
+          "name": "Community Quality Score",
+          "description": "Community Quality Score",
+          "code": "community_quality_score",
+          "frequency": "quarterly_nov",
+          "kind": "single",
+          "activities": [
+            {
+              "name": "Community Quality Score",
+              "code": "com_score",
+              "verified": "BbZub9izyx1"
+            }
+          ],
+          "data_set_ids": [],
+          "data_element_group_ids": [],
+          "main_org_unit_group_ids": [
+            "c0qflQrvmUG",
+            "fvbplxv1oRw"
+          ],
+          "target_org_unit_group_ids": [],
+          "groupset_ext_id": null,
+          "matching_groupset_ids": [],
+          "deg_ext_id": "gb8EbUnWTDu",
+          "activity_formulas": {
+            "com_score": {
+              "short_name": "com_score",
+              "description": "Community Quality Score",
+              "expression": "verified",
+              "frequency": "quarterly_nov",
+              "exportable_formula_code": null
+            }
+          },
+          "activity_decision_tables": [],
+          "formulas": {
+            "com_score": {
+              "short_name": "com_score",
+              "description": "Community Quality Score",
+              "expression": "MAX(%{com_score_values})",
+              "frequency": "quarterly_nov",
+              "exportable_formula_code": null,
+              "de_id": null
+            }
+          }
+        },
+        "equity_score": {
+          "name": "Equity Score",
+          "description": "Equity Score",
+          "code": "equity_score",
+          "frequency": "quarterly_nov",
+          "kind": "single",
+          "activities": [
+            {
+              "name": "Equity Score",
+              "code": "equity_score",
+              "declared": "NReIDGtVKsc",
+              "verified": "d7IE24QFNZQ"
+            }
+          ],
+          "data_set_ids": [],
+          "data_element_group_ids": [],
+          "main_org_unit_group_ids": [
+            "c0qflQrvmUG",
+            "fvbplxv1oRw"
+          ],
+          "target_org_unit_group_ids": [],
+          "groupset_ext_id": null,
+          "matching_groupset_ids": [],
+          "deg_ext_id": "upbZs05S4xf",
+          "activity_formulas": {
+            "equity_score": {
+              "short_name": "equity_score",
+              "description": "Equity Score",
+              "expression": "verified",
+              "frequency": "quarterly_nov",
+              "exportable_formula_code": null
+            },
+            "regional_equity_score": {
+              "short_name": "regional_equity_score",
+              "description": "Regional Equity score",
+              "expression": "declared",
+              "frequency": "quarterly_nov",
+              "exportable_formula_code": null
+            }
+          },
+          "activity_decision_tables": [],
+          "formulas": {
+            "equity_score": {
+              "short_name": "equity_score",
+              "description": "Equity Score",
+              "expression": "MAX(%{equity_score_values})",
+              "frequency": "quarterly_nov",
+              "exportable_formula_code": null,
+              "de_id": null
+            },
+            "regional_equity_score": {
+              "short_name": "regional_equity_score",
+              "description": "Regional Equity score",
+              "expression": "MAX(%{regional_equity_score_values})",
+              "frequency": "quarterly_nov",
+              "exportable_formula_code": null,
+              "de_id": null
+            }
+          }
+        },
+        "fraud_cases": {
+          "name": "Fraud Cases",
+          "description": "Fraud Cases",
+          "code": "fraud_cases",
+          "frequency": "quarterly_nov",
+          "kind": "single",
+          "activities": [
+            {
+              "name": "Fraud Cases",
+              "code": "fraud_cases",
+              "declared": "CpFQOviigKy",
+              "verified": "sK0UkASyz5c",
+              "waiver": "fn33JrUBBjx"
+            }
+          ],
+          "data_set_ids": [],
+          "data_element_group_ids": [],
+          "main_org_unit_group_ids": [
+            "c0qflQrvmUG",
+            "fvbplxv1oRw",
+            "snkgwcT2i21",
+            "Tly4W2DDFLD"
+          ],
+          "target_org_unit_group_ids": [],
+          "groupset_ext_id": null,
+          "matching_groupset_ids": [],
+          "deg_ext_id": "aLnNBcadvzQ",
+          "activity_formulas": {
+            "fraud_scale": {
+              "short_name": "fraud_scale",
+              "description": "Fraud Scale",
+              "expression": "if(waiver_is_null == 1 , 0, if(waiver == 1, 50, if(waiver == 2, 75, 100)))",
+              "frequency": "quarterly_nov",
+              "exportable_formula_code": null
+            },
+            "facilities_managed": {
+              "short_name": "Facilities Managed",
+              "description": "Number of Facilities Managed",
+              "expression": "declared",
+              "frequency": "quarterly_nov",
+              "exportable_formula_code": null
+            },
+            "facilities_with_cases": {
+              "short_name": "Facilities With Fraud Cases",
+              "description": "Number Facilities With Fraud Cases",
+              "expression": "verified",
+              "frequency": "quarterly_nov",
+              "exportable_formula_code": null
+            }
+          },
+          "activity_decision_tables": [],
+          "formulas": {
+            "fraud_scale": {
+              "short_name": "fraud_scale",
+              "description": "Fraud  Scale",
+              "expression": "MAX(%{fraud_scale_values})",
+              "frequency": "quarterly_nov",
+              "exportable_formula_code": null,
+              "de_id": "opVAhLb2hg0"
+            },
+            "facilities_with_cases": {
+              "short_name": "Facilities with cases",
+              "description": "Facilities with cases",
+              "expression": "MAX(%{facilities_with_cases_values})",
+              "frequency": "quarterly_nov",
+              "exportable_formula_code": null,
+              "de_id": null
+            },
+            "facilities_managed": {
+              "short_name": "Facilities Managed",
+              "description": "Facilities Managed",
+              "expression": "MAX(%{facilities_managed_values})",
+              "frequency": "quarterly_nov",
+              "exportable_formula_code": null,
+              "de_id": null
+            }
+          }
+        },
+        "pbf__hc__quality_price": {
+          "name": "PBF - HC - Quality Price",
+          "description": "PBF - HC - Quality Price",
+          "code": "pbf__hc__quality_price",
+          "frequency": "quarterly_nov",
+          "kind": "single",
+          "activities": [
+            {
+              "name": "PBF - Quality Price",
+              "code": "quality_price",
+              "unit_price": "o5NBXWDceaD"
+            }
+          ],
+          "data_set_ids": [],
+          "data_element_group_ids": [],
+          "main_org_unit_group_ids": [
+            "c0qflQrvmUG"
+          ],
+          "target_org_unit_group_ids": [],
+          "groupset_ext_id": null,
+          "matching_groupset_ids": [],
+          "deg_ext_id": "qY4SuFGD0Lh",
+          "activity_formulas": {
+            "hc_quality_price": {
+              "short_name": "PBF - HC - Quality Price",
+              "description": "PBF HC Quality Price",
+              "expression": "unit_price",
+              "frequency": "quarterly_nov",
+              "exportable_formula_code": null
+            }
+          },
+          "activity_decision_tables": [],
+          "formulas": {
+            "hc_quality_price": {
+              "short_name": "PBF - HC - Quality Price",
+              "description": "PBF HC Quality Price",
+              "expression": "max(%{hc_quality_price_values})",
+              "frequency": "quarterly_nov",
+              "exportable_formula_code": null,
+              "de_id": null
+            }
+          }
+        }
+      },
+      "output_data_sets": [
+        {
+          "frequency": "monthly",
+          "id": "OdJFJCWh1JV"
+        },
+        {
+          "frequency": "quarterly_nov",
+          "id": "Pe0GYywXTS7"
+        }
+      ]
+    },
+    "hospital_payment": {
+      "name": "Hospital Payment",
+      "frequency": "quarterly_nov",
+      "formulas": {
+        "quality_score": {
+          "short_name": "quality_score",
+          "description": "Quality Score",
+          "expression": "round(0.8 * hospital_technical_score + 0.2 * com_score, 2)",
+          "frequency": "quarterly_nov",
+          "exportable_formula_code": null,
+          "de_id": "X16HNDhKgLJ"
+        },
+        "quality_payment": {
+          "short_name": "quality_payment",
+          "description": "Quality Payment",
+          "expression": "quality_score * 160000",
+          "frequency": "quarterly_nov",
+          "exportable_formula_code": null,
+          "de_id": "JU9cGfZTunP"
+        },
+        "payment_without_fraud": {
+          "short_name": "payment_without_fraud",
+          "description": "Payment Without Fraud",
+          "expression": "hospital_quantity_amount + quality_payment",
+          "frequency": "quarterly_nov",
+          "exportable_formula_code": null,
+          "de_id": "xjp6n8xRs0s"
+        },
+        "fraud_retention_amount": {
+          "short_name": "fraud_retention_amount",
+          "description": "Fraud Retention Amount",
+          "expression": "payment_without_fraud * safe_div(fraud_scale, 100)",
+          "frequency": "quarterly_nov",
+          "exportable_formula_code": null,
+          "de_id": "xO1lNFXNnFH"
+        },
+        "total_payment": {
+          "short_name": "total_payment",
+          "description": "Total PBF Payment",
+          "expression": "round(payment_without_fraud - fraud_retention_amount, 2)",
+          "frequency": "quarterly_nov",
+          "exportable_formula_code": null,
+          "de_id": "YwnHxaYdI2Q"
+        },
+        "total_quantity_payment": {
+          "short_name": "Total Quantity payment",
+          "description": "Total Quantity payment",
+          "expression": "hospital_quantity_amount",
+          "frequency": "quarterly_nov",
+          "exportable_formula_code": null,
+          "de_id": "RtCt8nOOatV"
+        },
+        "tech_score": {
+          "short_name": "Technical Score",
+          "description": "Technical Score",
+          "expression": "hospital_technical_score",
+          "frequency": "quarterly_nov",
+          "exportable_formula_code": null,
+          "de_id": "pb1jSFbL1iP"
+        }
+      },
+      "packages": {
+        "hospital_quantity": {
+          "name": "Hospital Quantity",
+          "description": "Hospital Quantity",
+          "code": "hospital_quantity",
+          "frequency": "monthly",
+          "kind": "single",
+          "activities": [
+            {
+              "name": "1 - Immediate Postpartum Contraceptive Acceptance rate (IPPCAR)",
+              "code": "hs01",
+              "declared": "xnV3dBsEFxS",
+              "verified": "FzS3aCLcoBU",
+              "unit_price": "opX6GZZqtYZ"
+            },
+            {
+              "name": "2 - Antenatal Care (ANC) coverage – Eight or more contact",
+              "code": "hs02",
+              "declared": "NTidDdqjEde",
+              "verified": "Ak8zeMDLIeJ",
+              "unit_price": "DrnFva2zZdM"
+            },
+            {
+              "name": "3 - Births attended by skilled health personnel",
+              "code": "hs03",
+              "declared": "lzhOxCHJMOV",
+              "verified": "QSGRI5TRZ3p",
+              "unit_price": "uu5z003CAbl"
+            },
+            {
+              "name": "4 - Treatment outcome of neonates admitted to NICU",
+              "code": "hs04",
+              "declared": "vVTGS36Nr31.HTwD7UK5HOl",
+              "verified": "et5C9KOyJVX",
+              "unit_price": "PCKi0hgnr2U"
+            },
+            {
+              "name": "5  - Number of ART patients suppressed viral load",
+              "code": "hs05",
+              "declared": "TCP0MseOg1j",
+              "verified": "ofw2vxkTkXu",
+              "unit_price": "iBnBBepqE5v"
+            },
+            {
+              "name": "6 - TB Treatment-outcome (TB cure Rate)",
+              "code": "hs06",
+              "declared": "PsOeFUyiPJ9.iGSJZz4W3tH",
+              "verified": "ptSybCV86gX",
+              "unit_price": "BLbljAj9Yjf"
+            },
+            {
+              "name": "7 - Number of DR TB cases detected (Hr, RR Only, MDR- TB , Pre XDR and XDR TB cases)",
+              "code": "hs07",
+              "declared": "kJsfVtn7hEE",
+              "verified": "NLEU3K9klpW",
+              "unit_price": "O0LF6HR7s7N"
+            },
+            {
+              "name": "8 - Women aged 30–49 years who have been screened for cervical cancer",
+              "code": "hs08",
+              "declared": "jm0Ij4Cc0Lo",
+              "verified": "UI7MEMzePbO",
+              "unit_price": "wE7dLwltN1P"
+            },
+            {
+              "name": "9 - Women 30-49 years with cervical lesion treated",
+              "code": "hs09",
+              "declared": "g1qHnEWvVg4",
+              "verified": "sxpFmAHRtBp",
+              "unit_price": "FrDK2ZfND1W"
+            },
+            {
+              "name": "10 - Six Monthly control of blood pressure among people treated for hypertension",
+              "code": "hs10",
+              "declared": "wWIlCKHt0eG",
+              "verified": "Ad2NbGNR7X5",
+              "unit_price": "iDYQwzD7Re7"
+            },
+            {
+              "name": "11 - Admission rate",
+              "code": "hs11",
+              "declared": "PZSrdnlE85Y",
+              "verified": "GtRYL0tHkFY",
+              "unit_price": "MhjbNxdH6JS"
+            },
+            {
+              "name": "12 - ICU length of stay",
+              "code": "hs12",
+              "declared": "Q4NL1LGUg5q",
+              "verified": "ODlFS6JmXlM",
+              "unit_price": "vhZHGd89Loh"
+            },
+            {
+              "name": "13 - Emergency attendance with more than 24 hours stay",
+              "code": "hs13",
+              "declared": "vuAIMDDVMFZ",
+              "verified": "zoJ3z6iZ9Df",
+              "unit_price": "UQtQ4FGdGsF"
+            },
+            {
+              "name": "14 - Total number of major surgeries",
+              "code": "hs14",
+              "declared": "IMk3E81xtn9",
+              "verified": "JeC1b0iHVkN",
+              "unit_price": "TGDqDHEIsXf"
+            },
+            {
+              "name": "15 - Essential laboratorial tests available",
+              "code": "hs15",
+              "declared": "G0Nojd4lzXv",
+              "verified": "JGSzThz1kSK",
+              "unit_price": "mUeOJdSaum0"
+            },
+            {
+              "name": "16m - Outpatient Visits for children < 5 years - male",
+              "code": "hs16",
+              "declared": "pbsBlUxd3hb.kXOvDUag3oG",
+              "verified": "frcbHXVLE4E",
+              "unit_price": "MaPUhG29ikw"
+            },
+            {
+              "name": "16 f - Outpatient Visits for children < 5 years - female",
+              "code": "hs17",
+              "declared": "pbsBlUxd3hb.d5XrnBiZSn2",
+              "verified": "j3u259ye9jY",
+              "unit_price": "At2gzCKDdUb"
+            },
+            {
+              "name": "17m Outpatient Visits - male",
+              "code": "hs18",
+              "declared": "IrUkalDs4eN",
+              "verified": "aVFtFt2fRAz",
+              "unit_price": "EEMb30Ir9Ay"
+            },
+            {
+              "name": "17f Outpatient Visits - female",
+              "code": "hs19",
+              "declared": "WdO6cCiIGYW",
+              "verified": "WYGJWLRpVGE",
+              "unit_price": "y2ZyDZmcnUB"
+            },
+            {
+              "name": "18 Percentage of client with 100% prescribed drug filled",
+              "code": "hs20",
+              "declared": "KgrydWwLnJK",
+              "verified": "Hc3VNUGwZTP",
+              "unit_price": "MsmLRIRwPiI"
+            }
+          ],
+          "data_set_ids": [],
+          "data_element_group_ids": [],
+          "main_org_unit_group_ids": [
+            "fvbplxv1oRw"
+          ],
+          "target_org_unit_group_ids": [],
+          "groupset_ext_id": null,
+          "matching_groupset_ids": [],
+          "deg_ext_id": "cSCrDL9XnDY",
+          "activity_formulas": {
+            "price": {
+              "short_name": "Price",
+              "description": "Price",
+              "expression": "unit_price_level_2_quarterly_nov",
+              "frequency": "monthly",
+              "exportable_formula_code": null
+            },
+            "error_margin": {
+              "short_name": "Error Margin",
+              "description": "Error Margin",
+              "expression": "safe_div(ABS(declared - verified) * 100, declared)",
+              "frequency": "monthly",
+              "exportable_formula_code": null
+            },
+            "amount_lost": {
+              "short_name": "Amount Lost",
+              "description": "Amount Lost",
+              "expression": "if(error_margin > 10, verified * price , 0)",
+              "frequency": "monthly",
+              "exportable_formula_code": null
+            },
+            "amount": {
+              "short_name": "Amount",
+              "description": "Amount",
+              "expression": "if(error_margin <= 10, verified * price , 0)",
+              "frequency": "monthly",
+              "exportable_formula_code": null
+            }
+          },
+          "activity_decision_tables": [],
+          "formulas": {
+            "hospital_amount_lost": {
+              "short_name": "Hospital Amount Lost",
+              "description": "Hospital Amount Lost",
+              "expression": "SUM(%{amount_lost_values})",
+              "frequency": "monthly",
+              "exportable_formula_code": null,
+              "de_id": null
+            },
+            "hospital_quantity_amount": {
+              "short_name": "Hospital Quantity Amount",
+              "description": "Hospital Quantity Amount",
+              "expression": "SUM(%{amount_values})",
+              "frequency": "monthly",
+              "exportable_formula_code": null,
+              "de_id": "h91B1h56T8o"
+            }
+          }
+        },
+        "hospital_quality": {
+          "name": "Hospital Quality",
+          "description": "Hospital Quality",
+          "code": "hospital_quality",
+          "frequency": "quarterly_nov",
+          "kind": "single",
+          "activities": [
+            {
+              "name": "Diagnosis and management of Diabetes",
+              "code": "hsq01",
+              "verified": "MUN3oXFDVcQ"
+            },
+            {
+              "name": "Diagnosis and management of HTN",
+              "code": "hsq02",
+              "verified": "XdtipVM8nYn"
+            },
+            {
+              "name": "Ante Natal Care (ANC)",
+              "code": "hsq03",
+              "verified": "UXCLKbLst29"
+            },
+            {
+              "name": "Labour and delivery",
+              "code": "hsq04",
+              "verified": "ixVFiJgbQGM"
+            },
+            {
+              "name": "Post Natal Care (PNC)",
+              "code": "hsq05",
+              "verified": "Hj2BI1RURAv"
+            },
+            {
+              "name": "Pharmacy and supplies",
+              "code": "hsq06",
+              "verified": "jkdsw8tQpBY"
+            },
+            {
+              "name": "Hospital Governance",
+              "code": "hsq07",
+              "verified": "MRT6BMCbfsX"
+            },
+            {
+              "name": "Infection prevention and waste management",
+              "code": "hsq08",
+              "verified": "dOsi8wXbYQL"
+            },
+            {
+              "name": "General Appearance and Safety",
+              "code": "hsq09",
+              "verified": "tiRYcDdQP3I"
+            },
+            {
+              "name": "Administration, financial management, HRM and planning",
+              "code": "hsq10",
+              "verified": "kzVep3LvMkn"
+            },
+            {
+              "name": "Health Management Information System (HMIS/DHIS2) and Supervision",
+              "code": "hsq11",
+              "verified": "s9cpUkoXCyV"
+            },
+            {
+              "name": "General Out-Patient Department (OPD)",
+              "code": "hsq12",
+              "verified": "JdSCancEXQ3"
+            },
+            {
+              "name": "Expanded Program and Immunization",
+              "code": "hsq13",
+              "verified": "qry5KyCEEdG"
+            },
+            {
+              "name": "Emergency Services",
+              "code": "hsq14",
+              "verified": "PYymsGEFeJ2"
+            },
+            {
+              "name": "Inpatient Services",
+              "code": "hsq15",
+              "verified": "VlneA4u1s3H"
+            },
+            {
+              "name": "Surgical Service",
+              "code": "hsq16",
+              "verified": "pFcQB3rAK9X"
+            },
+            {
+              "name": "Laboratory services",
+              "code": "hsq17",
+              "verified": "WWG283rpz5Z"
+            },
+            {
+              "name": "Radiology Service",
+              "code": "hsq18",
+              "verified": "dUstEq1Tq5z"
+            }
+          ],
+          "data_set_ids": [],
+          "data_element_group_ids": [],
+          "main_org_unit_group_ids": [
+            "fvbplxv1oRw"
+          ],
+          "target_org_unit_group_ids": [],
+          "groupset_ext_id": null,
+          "matching_groupset_ids": [],
+          "deg_ext_id": "abyOzSiO1ue",
+          "activity_formulas": {
+            "percent_score": {
+              "short_name": "Percent Score",
+              "description": "Percent Score",
+              "expression": "verified",
+              "frequency": "quarterly",
+              "exportable_formula_code": null
+            }
+          },
+          "activity_decision_tables": [],
+          "formulas": {
+            "hospital_technical_score": {
+              "short_name": "Technical Score",
+              "description": "Technical Score",
+              "expression": "SUM(%{percent_score_values})",
+              "frequency": "quarterly_nov",
+              "exportable_formula_code": null,
+              "de_id": "coyrNtD54rR"
+            }
+          }
+        },
+        "community_quality_score": {
+          "name": "Community Quality Score",
+          "description": "Community Quality Score",
+          "code": "community_quality_score",
+          "frequency": "quarterly_nov",
+          "kind": "single",
+          "activities": [
+            {
+              "name": "Community Quality Score",
+              "code": "com_score",
+              "verified": "BbZub9izyx1"
+            }
+          ],
+          "data_set_ids": [],
+          "data_element_group_ids": [],
+          "main_org_unit_group_ids": [
+            "c0qflQrvmUG",
+            "fvbplxv1oRw"
+          ],
+          "target_org_unit_group_ids": [],
+          "groupset_ext_id": null,
+          "matching_groupset_ids": [],
+          "deg_ext_id": "gb8EbUnWTDu",
+          "activity_formulas": {
+            "com_score": {
+              "short_name": "com_score",
+              "description": "Community Quality Score",
+              "expression": "verified",
+              "frequency": "quarterly_nov",
+              "exportable_formula_code": null
+            }
+          },
+          "activity_decision_tables": [],
+          "formulas": {
+            "com_score": {
+              "short_name": "com_score",
+              "description": "Community Quality Score",
+              "expression": "MAX(%{com_score_values})",
+              "frequency": "quarterly_nov",
+              "exportable_formula_code": null,
+              "de_id": null
+            }
+          }
+        },
+        "equity_score": {
+          "name": "Equity Score",
+          "description": "Equity Score",
+          "code": "equity_score",
+          "frequency": "quarterly_nov",
+          "kind": "single",
+          "activities": [
+            {
+              "name": "Equity Score",
+              "code": "equity_score",
+              "declared": "NReIDGtVKsc",
+              "verified": "d7IE24QFNZQ"
+            }
+          ],
+          "data_set_ids": [],
+          "data_element_group_ids": [],
+          "main_org_unit_group_ids": [
+            "c0qflQrvmUG",
+            "fvbplxv1oRw"
+          ],
+          "target_org_unit_group_ids": [],
+          "groupset_ext_id": null,
+          "matching_groupset_ids": [],
+          "deg_ext_id": "upbZs05S4xf",
+          "activity_formulas": {
+            "equity_score": {
+              "short_name": "equity_score",
+              "description": "Equity Score",
+              "expression": "verified",
+              "frequency": "quarterly_nov",
+              "exportable_formula_code": null
+            },
+            "regional_equity_score": {
+              "short_name": "regional_equity_score",
+              "description": "Regional Equity score",
+              "expression": "declared",
+              "frequency": "quarterly_nov",
+              "exportable_formula_code": null
+            }
+          },
+          "activity_decision_tables": [],
+          "formulas": {
+            "equity_score": {
+              "short_name": "equity_score",
+              "description": "Equity Score",
+              "expression": "MAX(%{equity_score_values})",
+              "frequency": "quarterly_nov",
+              "exportable_formula_code": null,
+              "de_id": null
+            },
+            "regional_equity_score": {
+              "short_name": "regional_equity_score",
+              "description": "Regional Equity score",
+              "expression": "MAX(%{regional_equity_score_values})",
+              "frequency": "quarterly_nov",
+              "exportable_formula_code": null,
+              "de_id": null
+            }
+          }
+        },
+        "fraud_cases": {
+          "name": "Fraud Cases",
+          "description": "Fraud Cases",
+          "code": "fraud_cases",
+          "frequency": "quarterly_nov",
+          "kind": "single",
+          "activities": [
+            {
+              "name": "Fraud Cases",
+              "code": "fraud_cases",
+              "declared": "CpFQOviigKy",
+              "verified": "sK0UkASyz5c",
+              "waiver": "fn33JrUBBjx"
+            }
+          ],
+          "data_set_ids": [],
+          "data_element_group_ids": [],
+          "main_org_unit_group_ids": [
+            "c0qflQrvmUG",
+            "fvbplxv1oRw",
+            "snkgwcT2i21",
+            "Tly4W2DDFLD"
+          ],
+          "target_org_unit_group_ids": [],
+          "groupset_ext_id": null,
+          "matching_groupset_ids": [],
+          "deg_ext_id": "aLnNBcadvzQ",
+          "activity_formulas": {
+            "fraud_scale": {
+              "short_name": "fraud_scale",
+              "description": "Fraud Scale",
+              "expression": "if(waiver_is_null == 1 , 0, if(waiver == 1, 50, if(waiver == 2, 75, 100)))",
+              "frequency": "quarterly_nov",
+              "exportable_formula_code": null
+            },
+            "facilities_managed": {
+              "short_name": "Facilities Managed",
+              "description": "Number of Facilities Managed",
+              "expression": "declared",
+              "frequency": "quarterly_nov",
+              "exportable_formula_code": null
+            },
+            "facilities_with_cases": {
+              "short_name": "Facilities With Fraud Cases",
+              "description": "Number Facilities With Fraud Cases",
+              "expression": "verified",
+              "frequency": "quarterly_nov",
+              "exportable_formula_code": null
+            }
+          },
+          "activity_decision_tables": [],
+          "formulas": {
+            "fraud_scale": {
+              "short_name": "fraud_scale",
+              "description": "Fraud  Scale",
+              "expression": "MAX(%{fraud_scale_values})",
+              "frequency": "quarterly_nov",
+              "exportable_formula_code": null,
+              "de_id": "opVAhLb2hg0"
+            },
+            "facilities_with_cases": {
+              "short_name": "Facilities with cases",
+              "description": "Facilities with cases",
+              "expression": "MAX(%{facilities_with_cases_values})",
+              "frequency": "quarterly_nov",
+              "exportable_formula_code": null,
+              "de_id": null
+            },
+            "facilities_managed": {
+              "short_name": "Facilities Managed",
+              "description": "Facilities Managed",
+              "expression": "MAX(%{facilities_managed_values})",
+              "frequency": "quarterly_nov",
+              "exportable_formula_code": null,
+              "de_id": null
+            }
+          }
+        }
+      },
+      "output_data_sets": [
+        {
+          "frequency": "monthly",
+          "id": "pX77oCwrwTc"
+        },
+        {
+          "frequency": "quarterly_nov",
+          "id": "DVlww5Lghmh"
+        }
+      ]
+    },
+    "zhd_payment": {
+      "name": "ZHD Payment",
+      "frequency": "quarterly_nov",
+      "formulas": {
+        "facilities_managed_fraud": {
+          "short_name": "Facilities Managed Fraud",
+          "description": "Facilities Managed Fraud",
+          "expression": "round(safe_div(facilities_with_cases, facilities_managed) * 100,2)",
+          "frequency": "quarterly_nov",
+          "exportable_formula_code": null,
+          "de_id": "ublKNtkVJEH"
+        },
+        "total_payment": {
+          "short_name": "Total Payment",
+          "description": "Total Payment",
+          "expression": "zhd_amount - fraud_retention_amount",
+          "frequency": "quarterly_nov",
+          "exportable_formula_code": null,
+          "de_id": "AzJ0yFdUK2E"
+        },
+        "fraud_retention_amount": {
+          "short_name": "Fraud Retention Amount",
+          "description": "Fraud Retention Amount",
+          "expression": "round((zhd_amount * safe_div(facilities_managed_fraud, 100)) + (zhd_amount * safe_div(fraud_scale, 100)), 2)",
+          "frequency": "quarterly_nov",
+          "exportable_formula_code": null,
+          "de_id": "xO1lNFXNnFH"
+        },
+        "total_before_managed_facilities_fraud": {
+          "short_name": "Total Before Fraud",
+          "description": "Total Before Fraud",
+          "expression": "zhd_amount",
+          "frequency": "quarterly_nov",
+          "exportable_formula_code": null,
+          "de_id": "xjp6n8xRs0s"
+        }
+      },
+      "packages": {
+        "zhd": {
+          "name": "ZHD",
+          "description": "ZHD",
+          "code": "zhd",
+          "frequency": "quarterly_nov",
+          "kind": "single",
+          "activities": [
+            {
+              "name": "1 Biannual Zonal Health Department Action Plan developed",
+              "code": "zhd01",
+              "verified": "mlU4G3xViT1",
+              "unit_price": "ED4Sf2hOSu8",
+              "price": "ED4Sf2hOSu8"
+            },
+            {
+              "name": "2 Monthly service delivery reports of Hospitals and WHOs available in DHIS2, timely and completely",
+              "code": "zhd02",
+              "verified": "ppD4fHZvbPK",
+              "unit_price": "uNf2ZSNs2Zy",
+              "price": "uNf2ZSNs2Zy"
+            },
+            {
+              "name": "3 Biannual PBF Joint Review meetings organized",
+              "code": "zhd03",
+              "verified": "SvNFvPjMvrt",
+              "unit_price": "UPXU7rtIeYu",
+              "price": "UPXU7rtIeYu"
+            },
+            {
+              "name": "4 Hospitals recording quality improvement",
+              "code": "zhd04",
+              "verified": "iolOsMbspWR",
+              "unit_price": "Y3FWo2dqEIY",
+              "price": "Y3FWo2dqEIY"
+            },
+            {
+              "name": "5 Quarterly PBF quality verifications of Hospitals done and reported timely in close collaboration with the purchaser",
+              "code": "zhd05",
+              "verified": "o19gG3Zv8kG",
+              "unit_price": "r9SkC6a6tf4",
+              "price": "r9SkC6a6tf4"
+            },
+            {
+              "name": "6 Quarterly Supportive Supervision Checklists administered at Hospitals",
+              "code": "zhd06",
+              "verified": "AJuek3EXM6t",
+              "unit_price": "JVa7ZkqPpfL",
+              "price": "JVa7ZkqPpfL"
+            },
+            {
+              "name": "7 Annual Financial Audits conducted at Hospitals",
+              "code": "zhd07",
+              "verified": "eVukGwDAeYW",
+              "unit_price": "gpa3XVwg27e",
+              "price": "EZyNnWzHZZ1"
+            }
+          ],
+          "data_set_ids": [],
+          "data_element_group_ids": [],
+          "main_org_unit_group_ids": [
+            "Tly4W2DDFLD"
+          ],
+          "target_org_unit_group_ids": [],
+          "groupset_ext_id": null,
+          "matching_groupset_ids": [],
+          "deg_ext_id": "kE7f7MWlMk3",
+          "activity_formulas": {
+            "amount": {
+              "short_name": "amount",
+              "description": "Amount",
+              "expression": "if(waiver == 0, verified * price, verified)",
+              "frequency": "quarterly_nov",
+              "exportable_formula_code": null
+            },
+            "price": {
+              "short_name": "price",
+              "description": "Price",
+              "expression": "unit_price_level_2_quarterly",
+              "frequency": "quarterly_nov",
+              "exportable_formula_code": null
+            }
+          },
+          "activity_decision_tables": [],
+          "formulas": {
+            "zhd_amount": {
+              "short_name": "zhd_amount",
+              "description": "Total amount",
+              "expression": "round(SUM(%{amount_values}), 2)",
+              "frequency": "quarterly_nov",
+              "exportable_formula_code": null,
+              "de_id": null
+            }
+          }
+        },
+        "fraud_cases": {
+          "name": "Fraud Cases",
+          "description": "Fraud Cases",
+          "code": "fraud_cases",
+          "frequency": "quarterly_nov",
+          "kind": "single",
+          "activities": [
+            {
+              "name": "Fraud Cases",
+              "code": "fraud_cases",
+              "declared": "CpFQOviigKy",
+              "verified": "sK0UkASyz5c",
+              "waiver": "fn33JrUBBjx"
+            }
+          ],
+          "data_set_ids": [],
+          "data_element_group_ids": [],
+          "main_org_unit_group_ids": [
+            "c0qflQrvmUG",
+            "fvbplxv1oRw",
+            "snkgwcT2i21",
+            "Tly4W2DDFLD"
+          ],
+          "target_org_unit_group_ids": [],
+          "groupset_ext_id": null,
+          "matching_groupset_ids": [],
+          "deg_ext_id": "aLnNBcadvzQ",
+          "activity_formulas": {
+            "fraud_scale": {
+              "short_name": "fraud_scale",
+              "description": "Fraud Scale",
+              "expression": "if(waiver_is_null == 1 , 0, if(waiver == 1, 50, if(waiver == 2, 75, 100)))",
+              "frequency": "quarterly_nov",
+              "exportable_formula_code": null
+            },
+            "facilities_managed": {
+              "short_name": "Facilities Managed",
+              "description": "Number of Facilities Managed",
+              "expression": "declared",
+              "frequency": "quarterly_nov",
+              "exportable_formula_code": null
+            },
+            "facilities_with_cases": {
+              "short_name": "Facilities With Fraud Cases",
+              "description": "Number Facilities With Fraud Cases",
+              "expression": "verified",
+              "frequency": "quarterly_nov",
+              "exportable_formula_code": null
+            }
+          },
+          "activity_decision_tables": [],
+          "formulas": {
+            "fraud_scale": {
+              "short_name": "fraud_scale",
+              "description": "Fraud  Scale",
+              "expression": "MAX(%{fraud_scale_values})",
+              "frequency": "quarterly_nov",
+              "exportable_formula_code": null,
+              "de_id": "opVAhLb2hg0"
+            },
+            "facilities_with_cases": {
+              "short_name": "Facilities with cases",
+              "description": "Facilities with cases",
+              "expression": "MAX(%{facilities_with_cases_values})",
+              "frequency": "quarterly_nov",
+              "exportable_formula_code": null,
+              "de_id": null
+            },
+            "facilities_managed": {
+              "short_name": "Facilities Managed",
+              "description": "Facilities Managed",
+              "expression": "MAX(%{facilities_managed_values})",
+              "frequency": "quarterly_nov",
+              "exportable_formula_code": null,
+              "de_id": null
+            }
+          }
+        }
+      },
+      "output_data_sets": [
+        {
+          "frequency": "quarterly_nov",
+          "id": "qjl5olAPfA0"
+        }
+      ]
+    },
+    "who_payment": {
+      "name": "WHO Payment",
+      "frequency": "quarterly_nov",
+      "formulas": {
+        "facilities_managed_fraud": {
+          "short_name": "Facilities Managed Fraud",
+          "description": "Facilities Managed Fraud",
+          "expression": "round(safe_div(facilities_with_cases, facilities_managed) * 100,2)",
+          "frequency": "quarterly_nov",
+          "exportable_formula_code": null,
+          "de_id": "ublKNtkVJEH"
+        },
+        "total_payment": {
+          "short_name": "Total Payment",
+          "description": "Total Payment",
+          "expression": "who_amount - fraud_retention_amount",
+          "frequency": "quarterly_nov",
+          "exportable_formula_code": null,
+          "de_id": "R0wKxGLp4w4"
+        },
+        "fraud_retention_amount": {
+          "short_name": "Fraud Retention Amount",
+          "description": "Fraud Retention Amount",
+          "expression": "round((who_amount * safe_div(facilities_managed_fraud,100)) + (who_amount * safe_div(fraud_scale, 100)), 2)",
+          "frequency": "quarterly_nov",
+          "exportable_formula_code": null,
+          "de_id": "xO1lNFXNnFH"
+        },
+        "total_before_managed_facilities_fraud": {
+          "short_name": "Total Before Fraud",
+          "description": "Total Before Fraud",
+          "expression": "who_amount",
+          "frequency": "quarterly_nov",
+          "exportable_formula_code": null,
+          "de_id": "xjp6n8xRs0s"
+        }
+      },
+      "packages": {
+        "who": {
+          "name": "WHO",
+          "description": "WHO",
+          "code": "who",
+          "frequency": "quarterly_nov",
+          "kind": "single",
+          "activities": [
+            {
+              "name": "1 Quarterly Woreda Health Office Action Plan developed",
+              "code": "who01",
+              "verified": "sCjMM86Qnh9",
+              "unit_price": "pfxOUSmmSba",
+              "price": "pfxOUSmmSba"
+            },
+            {
+              "name": "2 Monthly service delivery reports of HCs available in DHIS2, timely and completely",
+              "code": "who02",
+              "verified": "CW19476UOTd",
+              "unit_price": "gZkqBv4bE2Z",
+              "price": "gZkqBv4bE2Z"
+            },
+            {
+              "name": "3 Percentage of households enrolled in CBHI and received their annual ID card (MEASURED ONCE PER YEAR)",
+              "code": "who03",
+              "verified": "yIIgm7PQLbw",
+              "unit_price": "rpRHHsXGbRR"
+            },
+            {
+              "name": "4 Number of Health Facilities Supervised Using a Structured Quality Supervision and Assessment Tool",
+              "code": "who04",
+              "verified": "SutB0yGhzfj",
+              "unit_price": "K0uRN9b10vh",
+              "price": "K0uRN9b10vh"
+            },
+            {
+              "name": "2 Health centre recording quality improvement",
+              "code": "who05",
+              "verified": "SZZ4KyKbp9U",
+              "unit_price": "pXOizxSoqiq",
+              "price": "pXOizxSoqiq"
+            },
+            {
+              "name": "6 Number of Woreda Coordinating Meetings Held",
+              "code": "who06",
+              "verified": "aVyqaRVZ0Ed",
+              "unit_price": "e52tbYZh0hw",
+              "price": "e52tbYZh0hw"
+            },
+            {
+              "name": "7 Annual Financial Audits conducted at HCs",
+              "code": "who07",
+              "verified": "eVukGwDAeYW",
+              "unit_price": "gpa3XVwg27e",
+              "price": "gpa3XVwg27e"
+            }
+          ],
+          "data_set_ids": [],
+          "data_element_group_ids": [],
+          "main_org_unit_group_ids": [
+            "snkgwcT2i21",
+            "uA6bunSbP9e"
+          ],
+          "target_org_unit_group_ids": [],
+          "groupset_ext_id": null,
+          "matching_groupset_ids": [],
+          "deg_ext_id": "hsjCFAx3DNI",
+          "activity_formulas": {
+            "amount": {
+              "short_name": "amount",
+              "description": "Amount",
+              "expression": "if(waiver == 0, verified * price, if(waiver == 1, verified, if(verified>=90, price, 0)))",
+              "frequency": "quarterly_nov",
+              "exportable_formula_code": null
+            },
+            "price": {
+              "short_name": "price",
+              "description": "Price",
+              "expression": "unit_price_level_2_quarterly",
+              "frequency": "quarterly_nov",
+              "exportable_formula_code": null
+            }
+          },
+          "activity_decision_tables": [],
+          "formulas": {
+            "who_amount": {
+              "short_name": "who_amount",
+              "description": "Total Amount",
+              "expression": "round(SUM(%{amount_values}), 2)",
+              "frequency": "quarterly_nov",
+              "exportable_formula_code": null,
+              "de_id": null
+            }
+          }
+        },
+        "fraud_cases": {
+          "name": "Fraud Cases",
+          "description": "Fraud Cases",
+          "code": "fraud_cases",
+          "frequency": "quarterly_nov",
+          "kind": "single",
+          "activities": [
+            {
+              "name": "Fraud Cases",
+              "code": "fraud_cases",
+              "declared": "CpFQOviigKy",
+              "verified": "sK0UkASyz5c",
+              "waiver": "fn33JrUBBjx"
+            }
+          ],
+          "data_set_ids": [],
+          "data_element_group_ids": [],
+          "main_org_unit_group_ids": [
+            "c0qflQrvmUG",
+            "fvbplxv1oRw",
+            "snkgwcT2i21",
+            "Tly4W2DDFLD"
+          ],
+          "target_org_unit_group_ids": [],
+          "groupset_ext_id": null,
+          "matching_groupset_ids": [],
+          "deg_ext_id": "aLnNBcadvzQ",
+          "activity_formulas": {
+            "fraud_scale": {
+              "short_name": "fraud_scale",
+              "description": "Fraud Scale",
+              "expression": "if(waiver_is_null == 1 , 0, if(waiver == 1, 50, if(waiver == 2, 75, 100)))",
+              "frequency": "quarterly_nov",
+              "exportable_formula_code": null
+            },
+            "facilities_managed": {
+              "short_name": "Facilities Managed",
+              "description": "Number of Facilities Managed",
+              "expression": "declared",
+              "frequency": "quarterly_nov",
+              "exportable_formula_code": null
+            },
+            "facilities_with_cases": {
+              "short_name": "Facilities With Fraud Cases",
+              "description": "Number Facilities With Fraud Cases",
+              "expression": "verified",
+              "frequency": "quarterly_nov",
+              "exportable_formula_code": null
+            }
+          },
+          "activity_decision_tables": [],
+          "formulas": {
+            "fraud_scale": {
+              "short_name": "fraud_scale",
+              "description": "Fraud  Scale",
+              "expression": "MAX(%{fraud_scale_values})",
+              "frequency": "quarterly_nov",
+              "exportable_formula_code": null,
+              "de_id": "opVAhLb2hg0"
+            },
+            "facilities_with_cases": {
+              "short_name": "Facilities with cases",
+              "description": "Facilities with cases",
+              "expression": "MAX(%{facilities_with_cases_values})",
+              "frequency": "quarterly_nov",
+              "exportable_formula_code": null,
+              "de_id": null
+            },
+            "facilities_managed": {
+              "short_name": "Facilities Managed",
+              "description": "Facilities Managed",
+              "expression": "MAX(%{facilities_managed_values})",
+              "frequency": "quarterly_nov",
+              "exportable_formula_code": null,
+              "de_id": null
+            }
+          }
+        }
+      },
+      "output_data_sets": [
+        {
+          "frequency": "quarterly_nov",
+          "id": "cUgnzmmKGSr"
+        }
+      ]
+    },
+    "purchaser_payment": {
+      "name": "Purchaser Payment",
+      "frequency": "quarterly_nov",
+      "formulas": {
+        "total_payment": {
+          "short_name": "Total Payment",
+          "description": "Total Payment",
+          "expression": "purchaser_amount",
+          "frequency": "quarterly_nov",
+          "exportable_formula_code": null,
+          "de_id": "sd8MPKBIxYd"
+        }
+      },
+      "packages": {
+        "purchaser": {
+          "name": "Purchaser",
+          "description": "Purchaser",
+          "code": "purchaser",
+          "frequency": "quarterly_nov",
+          "kind": "single",
+          "activities": [
+            {
+              "name": "1 Providers and regulators contracted",
+              "code": "pur01",
+              "verified": "ZafrS9bEZOZ",
+              "unit_price": "uLbNgGXNbTv",
+              "price": "uLbNgGXNbTv"
+            },
+            {
+              "name": "2 Monthly PBF quantity verifications of all health facilities done and reported timely",
+              "code": "pur02",
+              "verified": "W9vyvOvTrhK",
+              "unit_price": "LlyQdwodqkq",
+              "price": "LlyQdwodqkq"
+            },
+            {
+              "name": "3 Quarterly PBF quality verifications of all health facilities/WrHO done and reported timely in close collaboration with the WrHO and ZHD",
+              "code": "pur03",
+              "verified": "iKUotvOS4fM",
+              "unit_price": "GlNYNz8vDwj",
+              "price": "GlNYNz8vDwj"
+            },
+            {
+              "name": "4 Invoices and all supporting documents submitted timely",
+              "code": "pur04",
+              "verified": "obzQ7wPn20z",
+              "unit_price": "AbI5DDq0S6Z",
+              "price": "AbI5DDq0S6Z"
+            },
+            {
+              "name": "5 Quarterly narrative report submitted timely",
+              "code": "pur05",
+              "verified": "FdVanYmOq3H",
+              "unit_price": "YxDnFeyRa0I",
+              "price": "YxDnFeyRa0I"
+            }
+          ],
+          "data_set_ids": [],
+          "data_element_group_ids": [],
+          "main_org_unit_group_ids": [
+            "JjWvIQ6ctal",
+            "yMy2gtvFpvx"
+          ],
+          "target_org_unit_group_ids": [],
+          "groupset_ext_id": null,
+          "matching_groupset_ids": [],
+          "deg_ext_id": "l33WLTn51LN",
+          "activity_formulas": {
+            "price": {
+              "short_name": "price",
+              "description": "Price",
+              "expression": "unit_price",
+              "frequency": "quarterly_nov",
+              "exportable_formula_code": null
+            },
+            "amount": {
+              "short_name": "amount",
+              "description": "Amount",
+              "expression": "verified * price",
+              "frequency": "quarterly_nov",
+              "exportable_formula_code": null
+            }
+          },
+          "activity_decision_tables": [],
+          "formulas": {
+            "purchaser_amount": {
+              "short_name": "who_amount",
+              "description": "Total Amount",
+              "expression": "round(SUM(%{amount_values}), 2)",
+              "frequency": "quarterly_nov",
+              "exportable_formula_code": null,
+              "de_id": null
+            }
+          }
+        }
+      },
+      "output_data_sets": [
+        {
+          "frequency": "quarterly_nov",
+          "id": "hJsuMarojaM"
+        }
+      ]
+    },
+    "cbo_payment": {
+      "name": "CBO Payment",
+      "frequency": "quarterly_nov",
+      "formulas": {
+        "total_payment": {
+          "short_name": "Total Payment",
+          "description": "Total Payment",
+          "expression": "cbo_payment",
+          "frequency": "quarterly_nov",
+          "exportable_formula_code": null,
+          "de_id": "SYvYLrOBCcE"
+        }
+      },
+      "packages": {
+        "cbo": {
+          "name": "CBO",
+          "description": "CBO",
+          "code": "cbo",
+          "frequency": "quarterly_nov",
+          "kind": "single",
+          "activities": [
+            {
+              "name": "Number of clients interviewed, and information completed as per the template",
+              "code": "cbo01",
+              "verified": "ATrfXB7Kq23",
+              "unit_price": "Kd6Zr9Vztmm",
+              "price": "Kd6Zr9Vztmm"
+            },
+            {
+              "name": "Report and questionnaires submitted on time, presented to the health facility management and the community, and signed by both",
+              "code": "cbo02",
+              "verified": "C8hl5P9gNln",
+              "unit_price": "g0CS4I0tBH6",
+              "price": "g0CS4I0tBH6"
+            }
+          ],
+          "data_set_ids": [],
+          "data_element_group_ids": [],
+          "main_org_unit_group_ids": [
+            "c0qflQrvmUG",
+            "fvbplxv1oRw"
+          ],
+          "target_org_unit_group_ids": [],
+          "groupset_ext_id": null,
+          "matching_groupset_ids": [],
+          "deg_ext_id": "F7WPHd7d0Zq",
+          "activity_formulas": {
+            "price": {
+              "short_name": "Price",
+              "description": "Price",
+              "expression": "unit_price_level_3_quarterly",
+              "frequency": "quarterly_nov",
+              "exportable_formula_code": null
+            },
+            "amount": {
+              "short_name": "Amount",
+              "description": "Amount",
+              "expression": "verified * price",
+              "frequency": "quarterly_nov",
+              "exportable_formula_code": null
+            }
+          },
+          "activity_decision_tables": [],
+          "formulas": {
+            "cbo_payment": {
+              "short_name": "CBO Payment",
+              "description": "CBO Payment",
+              "expression": "SUM(%{amount_values})",
+              "frequency": "quarterly_nov",
+              "exportable_formula_code": null,
+              "de_id": null
+            }
+          }
+        }
+      },
+      "output_data_sets": [
+        {
+          "frequency": "quarterly_nov",
+          "id": "bmDhqaQ3krm"
+        }
+      ]
+    }
+  },
+  "entity_group": {
+    "id": null,
+    "name": null
+  }
+}

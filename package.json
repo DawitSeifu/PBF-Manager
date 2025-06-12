@@ -1,0 +1,66 @@
+{
+  "name": "ORBF2-Invoices-and-Reports",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": ".",
+  "engines": {
+    "node": ">=14.17.0",
+    "npm": ">=7"
+  },
+  "devDependencies": {
+    "react-scripts": "3.4.4"
+  },
+  "dependencies": {
+    "@blsq/blsq-report-components": "1.1.13",
+    "@date-io/moment": "1.x",
+    "@material-ui/core": "^4.11.4",
+    "@material-ui/icons": "^4.2.1",
+    "@material-ui/lab": "^4.0.0-alpha.48",
+    "@material-ui/pickers": "^3.2.10",
+    "bluesquare-components": "https://github.com/BLSQ/bluesquare-components",
+    "core-js": "^3.6.5",
+    "d2": "30.0.2",
+    "i18next": "^19.0.0",
+    "lodash.debounce": "^4.0.8",
+    "mui-datatables": "^3.7.6",
+    "papaparse": "^5.3.0",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.1",
+    "react-app-rewired": "^2.1.6",
+    "react-dom": "^16.13.1",
+    "react-export-excel": "^0.5.3",
+    "react-i18next": "^11.7.3",
+    "react-intl": "^5.10.16",
+    "react-query": "^3.34.12",
+    "react-redux": "^7.2.1",
+    "react-router-dom": "^4.3.1",
+    "react-router-redux": "^4.0.8",
+    "react-select": "^3.1.0",
+    "react-table": "^7.7.0",
+    "recharts": "^2.1.8",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0",
+    "written-number": "^0.8.1",
+    "xlsx-populate": "^1.21.0"
+  },
+  "scripts": {
+    "generate-config": "node ./generate-config.js",
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "testcov": "react-app-rewired test --env=jsdom --coverage",
+    "eject": "react-app-rewired eject"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

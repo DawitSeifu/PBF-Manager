@@ -1,0 +1,51 @@
+#! /usr/bin/env bash
+#
+# Stop on error and output every command before executing it
+set -e
+
+friendly_name="PBF Manager"
+slack_channel="#pbf-ethiopia-fmoh"
+repository=report-pbf-ethiopia-fmoh
+app_deployed_url="https://dhis-pbf.moh.gov.et/api/apps/PBF-Manager/index.html#/select"
+
+if [[ -z "${ON_BITBUCKET}" ]]; then
+   # Not on Bitbucket, assuming aws cli configured.
+   deployer=$(whoami)
+   git_sha=$(git rev-parse HEAD)
+else
+   echo "On Bitbucket, checking env variables"
+   [[ -z "${SLACK_NOTIFY_URL}" ]] && echo "  SLACK_NOTIFY_URL not found"
+   [[ -z "${DHIS2_PASSWORD}" ]] && echo "  DHIS2_PASSWORD not found"
+
+
+   if [[ -z "${SLACK_NOTIFY_URL}" ]] || [[ -z "${DHIS2_PASSWORD}" ]]; then
+      exit 1;
+   fi
+
+   # https://confluence.atlassian.com/bitbucket/variables-in-pipelines-794502608.html
+   deployer="Bucket of Bits"
+   git_sha="${BITBUCKET_COMMIT}"
+fi
+
+./ship.sh "${DHIS2_PASSWORD}"
+
+echo "Notifying Slack"
+
+slack_message="${deployer} deployed <https://bitbucket.org/bluesquare_org/${repository}/commits/${git_sha}|${git_sha:0:10}> of <${app_deployed_url}|${friendly_name}>"
+
+if [[ -z "${SLACK_NOTIFY_URL}" ]]; then
+  cat <<SLACK
+  You do't have SLACK_NOTIFY_URL set in your environment variables.
+  Paste this into #tech-devops:
+
+        ${slack_message}
+
+  (Or set the env variable)
+SLACK
+else
+  json_payload=$(cat <<JSON
+{"channel": "${slack_channel}", "username": "blsqbot", "text": "${slack_message}.", "icon_url": "https://blsq-io.s3.amazonaws.com/blsqbot/slack-icon.png"}
+JSON
+)
+  curl -X POST --data-urlencode "payload=${json_payload}" ${SLACK_NOTIFY_URL}
+fi

@@ -1,0 +1,73 @@
+[
+  {
+    "code": "quantity-health-center",
+    "name": "Quantity Health Center",
+    "frequency": "monthly",
+    "type": "dataSet",
+    "dataSetId": "m6ResRgwziO",
+    "component": "QuantityForm",
+    "category": "Quantity",
+    "hesabuPayment": "health_center_payment",
+    "hesabuPackage": "health_center_quantity",
+    "hesabuTotal": "total_quantity_amount",
+    "hesabuInputs": [
+      "verified",
+      "declared"
+    ],
+    "startPeriod": "201701",
+    "endPeriod": "204001",
+    "contracts": [
+      [
+        "pbf_health_center"
+      ]
+    ],
+    "showIndex": false
+  },
+  {
+    "code": "quality-health-center",
+    "name": "Quality Health Center",
+    "frequency": "quarterlyNov",
+    "type": "dataSet",
+    "dataSetId": "VhD8pZVehRn",
+    "component": "QualityForm",
+    "category": "Quality",
+    "hesabuPayment": "health_center_payment",
+    "hesabuPackage": "health_center_quality",
+    "hesabuScoreColumn": "technical_score",
+    "hesabuTotalObtenus": "total_obtenus_qualite_pma_nk",
+    "hesabuTotalMaximum": "total_max_qualite_pma_nk",
+    "hesabuInputs": [
+      "points_maximum",
+      "points_attribues"
+    ],
+    "hesabuScore": "technical_score",
+    "startPeriod": "202101",
+    "endPeriod": "204001",
+    "iasoFormsComment" : "to get the list : https://pbf.moh.gov.et/api/forms/?search=HC+-+&order=name&limit=50&page=1&fields=id,name,form_id",
+    "iasoForms": {
+      "hcq01": "HC_01_Diabetes",
+      "hcq02": "HC_02_HTN",
+      "hcq03": "HC_03_ANC",
+      "hcq04": "HC_04_Labour_and_Delivery_Services",
+      "hcq05": "HC_05_PNC",
+      "qual06": "CS_QLTE_RDC006_consult_externes",
+      "qual07": "CS_QLTE_RDC007-plann_famil",
+      "qual08": "CS_QLTE_RDC008-Laboratoire",
+      "qual09": "CS_QLTE_RDC009-service_obs",
+      "qual10": "CS_QLTE_RDC0010-gestion-med",
+      "qual11": "CS_QLTE_RDC0011-dispo-med",
+      "qual12": "CS_QLTE_RDC0012-maternite",
+      "qual13": "CS_QLTE_RDC0013-Vacc_et_CPS",
+      "qual14": "CS_QLTE_RDC0014-CPN",
+      "qual15": "CS_QLTE_RDC0015-vih_tb",
+      "qual21": "CS_QLTE_RDC0016-pci",
+      "qual16": "CS_QLTE_RDC0017_pec-svs"
+    },
+    "contracts": [
+      [
+        "pbf_health_center"
+      ]
+    ],
+    "showIndex": false
+  }
+]

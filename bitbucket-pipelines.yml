@@ -1,0 +1,28 @@
+image: node:14
+
+# More info:
+# Configuring: https://confluence.atlassian.com/bitbucket/configure-bitbucket-pipelines-yml-792298910.html
+# Variables: https://confluence.atlassian.com/bitbucket/variables-in-pipelines-794502608.html
+# actual variables : https://bitbucket.org/bluesquare_org/report-mdg-app/admin/addon/admin/pipelines/repository-variables
+
+pipelines:
+  branches:
+    # Only runs on `master`
+    main:
+      - step:
+          name: "Deploy to DHIS2 using script/deploy"
+          deployment: production
+          caches:
+            - nodecustom
+            - yarn
+          script:
+            - apt-get update
+            - apt-get install -y jq zip
+            - yarn install --network-concurrency 1
+            - unset CI
+            - script/deploy
+
+definitions:
+  caches:
+    nodecustom: ./node_modules
+    yarn: /usr/local/share/.cache/yarn

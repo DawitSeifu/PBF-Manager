@@ -1,0 +1,25 @@
+.footer td {
+  font-size: 170%;
+}
+
+td.total {
+  font-weight: bold;
+}
+
+td.total:nth-child(1) {
+  padding-left: 100px !important;
+}
+
+td.intermediate:nth-child(1) {
+  padding-left: 150px !important;
+}
+td.subheader {
+  text-align: left;
+  font-style: italic;
+  white-space: nowrap;
+}
+td.subheader2 {
+  text-align: center;
+  font-style: italic;
+  white-space: nowrap;
+}
