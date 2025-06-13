@@ -1,6 +1,9 @@
 import ConsolidatedMapper from "./consolidated/Mapper";
 import ConsolidatedInvoice from "./consolidated/Invoice";
 
+import DawitMapper from "./Dawit/Mapper";
+import DawitInvoice from "./Dawit/Invoice";
+
 import AdminMapper from "./admin/Mapper";
 import AdminInvoice from "./admin/Invoice";
 
@@ -22,7 +25,7 @@ import project_descriptor from "../data/2025-projectDescriptor";
 import { indexBy } from "@blsq/blsq-report-components";
 
 // Invoice codes
-
+const DAWIT_CODE = "Dawit-invoice";
 const HEALTH_CENTER_CODE = "health-center-invoice";
 const HOSPITAL_CODE = "hospital-invoice";
 const WHO_CODE = "woreda-invoice";
@@ -42,7 +45,10 @@ const enrich = (invoice, payment_rule) => {
   });
 };
 
-
+enrich(
+  DESCRIPTOR_BY_CODE[DAWIT_CODE],
+  project_descriptor.payment_rules.health_center_payment
+);
 enrich(
   DESCRIPTOR_BY_CODE[HEALTH_CENTER_CODE],
   project_descriptor.payment_rules.health_center_payment
@@ -94,6 +100,11 @@ const dataApprovalWorkflows = [
 ];
 
 const INVOICES = {
+  [DAWIT_CODE]: {
+    component: DawitInvoice,
+    mapper: new DawitMapper(),
+  },
+
   [APPROVALS_CODE]: {
     component: ApprovalsInvoice,
     mapper: new ApprovalsMapper(),
@@ -142,6 +153,11 @@ class Invoices {
 
   getInvoiceTypeCodes(ou) {
     const invoiceCodes = [];
+
+    if (this.hasGroup(ou, "pbf_health_center")) {
+      invoiceCodes.push(DAWIT_CODE);
+    }
+
     if (this.hasGroup(ou, "pbf_health_center")) {
       invoiceCodes.push(HEALTH_CENTER_CODE);
       invoiceCodes.push(CBO_CODE);

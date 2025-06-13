@@ -1,5 +1,28 @@
 [
   {
+    "code": "Dawit-invoice",
+    "name": "Dawit Invoice",
+    "facilityLabel": "Dawit",
+    "orientation": "portrait",
+    "frequency": "quarterlyNov",
+    "periodFormat": "quarter",
+    "paymentRule": "health_center_payment",
+    "dataSets": [
+      "XK8MHYfhZQ1"
+    ],
+    "dataElementGroups": [
+      "sAKB32kTSsQ",
+      "vwJ0DEWAEer"
+    ],
+    "organisationUnitGroup": "Jr6rqRqLpTZ",
+    "testData": [
+      {
+        "period": "2018NovQ1",
+        "orgUnit": "TwSa8zUu09Q"
+      }
+    ]
+  },
+  {
     "code": "health-center-invoice",
     "name": "Health Center Invoice",
     "facilityLabel": "Health center",
